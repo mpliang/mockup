@@ -12,7 +12,7 @@ var four0four = require('./utils/404')();
 
 var environment = process.env.NODE_ENV;
 
-var whitelist = ['http://localhost:3000'];
+var whitelist = ['https://mpliang.github.io'];
 var corsOptions = {
   origin: function(origin, callback) {
     var originIsWhitelisted = whitelist.indexOf(origin) !== -1;

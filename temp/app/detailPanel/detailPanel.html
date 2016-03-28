@@ -1,0 +1,23 @@
+<div id="detailPanel" class="viewPanel">
+  <div class="col-xs-12 detailSearch">
+    <input type="text" class="form-control" placeholder="Search..." ng-model="query">
+  </div><!-- /.col-lg-6 -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>Amount</th>
+        <th>Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="transaction in activeDetail.transactions | filter : query">
+        <td><i class="fa fa-caret-square-o-down"></i></td>
+        <td>{{transaction.name}}</td>
+        <td>{{transaction.amount | currency}}</td>
+        <td>{{transaction.balance | currency}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

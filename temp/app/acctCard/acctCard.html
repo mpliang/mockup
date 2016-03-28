@@ -1,0 +1,8 @@
+<a class='acctCard list-group-item'>
+  <i class="fa fa-credit-card"></i>
+  <div class="acctInfo">
+    <small>{{acct.name.toUpperCase()}}</small>
+    <p>{{acct.balance | currency}}</p>
+  </div>
+  <uib-progressbar ng-if="acct.name === 'Credit Cards'" max="acct.limit" value="acct.balance"></uib-progressbar>
+</a>

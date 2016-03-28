@@ -1,0 +1,5 @@
+<div id="accountsPanel" class="viewPanel">
+  <div class="accountsList list-group">
+    <acct-card ng-repeat="acct in myAccounts track by acct.id" acct="acct" ng-click="accountClickHandler({acctId: acct.id})"></acct-card>
+  </div>
+</div>

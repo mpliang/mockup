@@ -2,7 +2,7 @@
 
 To run locally:
 ```
-git clone git@github.com:mpliang/mockup.git && cd mockup
+git clone && cd mockup
 ```
 
 ```

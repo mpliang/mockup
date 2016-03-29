@@ -6,3 +6,4 @@ bower_components
 npm-debug.log
 dist
 src/assets
+temp

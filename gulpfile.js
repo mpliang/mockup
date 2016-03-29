@@ -22,7 +22,7 @@ var dirs = {
     }
 }
 
-gulp.task('default', ['sass', 'assets', 'html', 'build', 'watch']);
+gulp.task('default', ['sass', 'assets', 'html', 'build']);
 gulp.task('clean', ['clean']);
 
 gulp.task('clean', function () {

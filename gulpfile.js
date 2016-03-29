@@ -1,9 +1,9 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var del = require('del');
-var minifyCss = require('gulp-minify-css');
+var cleanCSS = require('gulp-clean-css');
 var babel = require('gulp-babel');
-// var $ = require('gulp-load-plugins')({lazy: true});
+var $ = require('gulp-load-plugins')({lazy: true});
 
 var dirs = {
     src: {
@@ -20,6 +20,13 @@ var dirs = {
         js: 'dist/app',
         bower: 'dist/bower_components/'
     }
+};
+
+var config = {
+    alljs: [
+        './src/client/app/**/*.js',
+        './src/server/**/*.js'
+    ]
 }
 
 gulp.task('default', ['sass', 'assets', 'html', 'build']);
@@ -30,10 +37,9 @@ gulp.task('clean', function () {
 });
 
 gulp.task('vet', function() {
-    log('Analyzing source with JSHint and JSCS');
+    console.log('Analyzing source with JSHint and JSCS');
     return gulp
         .src(config.alljs)
-        .pipe($.if(args.verbose, $.print()))
         .pipe($.jshint())
         .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
         .pipe($.jshint.reporter('fail'))
@@ -44,7 +50,7 @@ gulp.task('sass', function () {
     gulp.src(dirs.src.scss.entry)
         .pipe(sass())
         .on('error', sass.logError)
-        .pipe(minifyCss())
+        .pipe(cleanCSS())
         .pipe(gulp.dest(dirs.out.dist))
 });
 
